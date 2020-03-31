@@ -30,13 +30,13 @@ class SendbirdAdapter {
     return this.api.currentUser.userId === user.userId;
   }
 
-  connect(userId, nickname, action) {
+  connect(userId, nickname, profileUrl, action) {
     this.api.connect(userId.trim(), (user, error) => {
       if (error) {
         console.error(error);
         return;
       }
-      this.api.updateCurrentUserInfo(nickname.trim(), '', (response, error) => {
+      this.api.updateCurrentUserInfo(nickname.trim(), profileUrl || '', (response, error) => {
         if (error) {
           console.error(error);
           return;

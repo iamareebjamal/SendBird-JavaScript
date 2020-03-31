@@ -8,7 +8,7 @@ class ChatBoard extends Element {
 
     let top = new Element();
     top.setClass('top');
-    top.val('Chat Live');
+    top.val('Live Chat');
     parent.appendElement(this.appendElement(top));
   }
 }

@@ -98,7 +98,7 @@ class LiveChat {
           _this.$spinner.attachTo(_this.$loginBoard.$login);
 
           _this.adapter.connect(_this.$loginBoard.$userId.val(),
-            _this.$loginBoard.$nickname.val(), '',
+            _this.$loginBoard.$nickname.val(), '', null,
             () => {
               _this.$spinner.remove(_this.$loginBoard.$login);
               _this.$loginBoard.reset();
@@ -116,18 +116,19 @@ class LiveChat {
     }
   }
 
-  startWithConnect(appId, userId, nickname, profileUrl, callback) {
+  startWithConnect(appId, userId, nickname, profileUrl, accessToken, callback) {
     let _this = this;
     _this.init(appId, {
       'type' : 'user',
       'data' : {
         'userId' : userId,
         'nickname' : nickname,
-        'profileUrl' : profileUrl
+        'profileUrl' : profileUrl,
+        'accessToken': accessToken || null
       }
     });
     if (_this.$chat) {
-      _this.adapter.connect(userId, nickname, profileUrl, () => {
+      _this.adapter.connect(userId, nickname, profileUrl, accessToken || null, () => {
         _this.$spinner.attachTo(_this.$messageBoard.$content);
         _this.$chatBoard.appendElement(_this.$messageBoard);
         callback();

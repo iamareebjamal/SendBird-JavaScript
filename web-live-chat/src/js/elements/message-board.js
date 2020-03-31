@@ -84,6 +84,10 @@ class MessageBoard extends Element {
     $nickname.setClass('nickname', 'nickname-color-' + nicknameColor);
     $nickname.val(message.sender.nickname + MESSAGE_PREFIX);
 
+    const img = document.createElement('img');
+    img.setAttribute('src', message.sender.profileUrl);
+    img.classList.add('img24', 'radiusRound');
+    $text.appendElement(img);
     $text.appendElement($nickname);
     $text.appendContent(message.message, {
       xssProtectionEnabled : true,

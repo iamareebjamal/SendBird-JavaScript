@@ -10,7 +10,6 @@ module.exports = {
     filename: '[name].SendBird.js',
     publicPath: 'dist'
   },
-  devtool: 'cheap-eval-source-map',
   devServer: {
     publicPath: '/dist/',
     compress: true,

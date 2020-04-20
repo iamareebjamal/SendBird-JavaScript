@@ -78,6 +78,18 @@ class LiveChat {
           });
         }
       });
+
+      _this.$messageBoard.$fileInput.on('change', () => {
+        const sendFile = _this.$messageBoard.$fileInput.$.files[0];
+        if (sendFile) {
+          _this.adapter.channel.sendFileMessage(sendFile,
+            (message, error) => {
+              error
+                ? null
+                : _this.$messageBoard.render([ message ], true, false);
+            });
+        }
+      });
     }
   }
 

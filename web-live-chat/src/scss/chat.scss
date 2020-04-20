@@ -177,6 +177,14 @@
             font-size: 13px;
             font-weight: 700 !important;
           }
+
+          > .media-container {
+            margin-top: 10px;
+
+            > img {
+              width: 100%;
+            }
+          }
         }
 
         > .time {
@@ -235,11 +243,12 @@
 
       > .input {
         @include reset();
-        width: calc(100% - 55px);
+        width: calc(100% - 70px);
         min-height: 14px;
         max-height: 39px;
         overflow-y: scroll;
-        padding-right: 45px !important;
+        padding-right: 35px !important;
+        padding-left: 35px !important;
         padding: 9px 10px;
         display: inline-block;
         outline: none !important;
@@ -264,7 +273,7 @@
         @include reset();
         position: absolute;
         bottom: 15px;
-        right: 20px;
+        right: 10px;
         width: 19px;
         height: 19px;
         padding-left: 5px;
@@ -275,6 +284,32 @@
       > .icon.active {
         opacity: 1;
         cursor: pointer;
+      }
+
+      > .file {
+        @include reset();
+        position: absolute;
+        bottom: 12px;
+        left: 5px;
+        width: 25px;
+        height: 25px;
+        opacity: 0.3;
+        border-radius: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        > svg {
+          height: 19px;
+          width: 19px;
+        }
+      }
+
+      > .file:hover {
+        background-color: #D1C4E9;
+        color: #311B92;
+        opacity: 1;
       }
     }
     > .content-input.active {
